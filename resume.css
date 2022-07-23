@@ -1,17 +1,4 @@
-a{  
-    text-decoration: none;
-}
 
-.nav-link {
-    padding: 0;
-    font-size: 1.25rem;
-    line-height: 2.5rem;
-    color: rgb(61, 60, 60); }
-  
-.nav-link:hover,
-.nav-link:focus,
-.active .nav-link {
-   color: rgba(70, 69, 69, 0.8); }
 .cover {
     border-radius: 10px; }
       
