@@ -280,13 +280,13 @@
               <div class="col-md-7 d-print-none">
                 <div class="my-2">
                   <!--contacr form-->
-                  <form action="Contact.php" method="POST">
+                  <form  class="contact_from" action="#" >
                     <div class="row">
                       <div class="col-6">
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Your_Name" required>
                       </div>
                       <div class="col-6">
-                        <input class="form-control" type="email" id="email" name="_replyto" placeholder="Your E-mail"
+                        <input class="form-control" type="email" id="email" name="_replyto" placeholder="Your_E-mail"
                           required>
                       </div>
                     </div>
@@ -339,6 +339,38 @@
         </div>
       </div>
     </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+            function sendMsg(e){
+              e.preventDefault();
+            var from= document.querySelector(".contact_from");
+                name= document.querySelector(".Your_Name");
+                email= document.querySelector(".Your_E-mail");
+                msg= document.querySelector(".message");
+        //function to send email
+            Email.send({
+            SecureToken : "51615b2d-9243-41a0-a053-ab1ca5e473a1",
+            To : 'gk544729@gmail.com',
+            From : email.value,
+            Subject : "New Contact!!! | New Reach Available!! ",
+            Body : name+"<br/>"+" wrote the following: "+"<br/>"+msg.value+"<br/>"
+        }).then(
+          message => alert(message)
+        );
+        Email.send({
+            SecureToken : "51615b2d-9243-41a0-a053-ab1ca5e473a1",
+            To : email.value,
+            From : "gk544729@gmail.com",
+            Subject : "Recoded Response Gokul kushwaha| contact from",
+            Body : "Here is a copy of your message :"+"\n" name+"\n"+" wrote the following: "+"\n"+msg.value+"\n"+"Mail Sent. Thank you! \n" +name +"\n"+ ", I will contact you shortly."
+        }).then(
+          message => alert(message)
+        );
+      }
+
+       form.addEventListener('submit',sendMsg); 
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"></script>
