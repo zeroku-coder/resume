@@ -283,10 +283,10 @@
                   <form  class="contact_from" action="#" >
                     <div class="row">
                       <div class="col-6">
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Your_Name" required>
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Your Name" required>
                       </div>
                       <div class="col-6">
-                        <input class="form-control" type="email" id="email" name="_replyto" placeholder="Your_E-mail"
+                        <input class="form-control" type="email" id="email" name="_replyto" placeholder="Your E-mail"
                           required>
                       </div>
                     </div>
@@ -345,8 +345,8 @@
             function sendMsg(e){
               e.preventDefault();
             var from= document.querySelector(".contact_from");
-                name= document.querySelector(".Your_Name");
-                email= document.querySelector(".Your_E-mail");
+                name= document.querySelector(".name");
+                email= document.querySelector("._replyto");
                 msg= document.querySelector(".message");
         //function to send email
             Email.send({
@@ -363,7 +363,7 @@
             To : email.value,
             From : "gk544729@gmail.com",
             Subject : "Recoded Response Gokul kushwaha| contact from",
-            Body : "Here is a copy of your message :"+"\n" name+"\n"+" wrote the following: "+"\n"+msg.value+"\n"+"Mail Sent. Thank you! \n" +name +"\n"+ ", I will contact you shortly."
+            Body : "Here is a copy of your message :"+"\n"+name.value+"\n"+" wrote the following: "+"\n"+msg.value+"\n"+"Mail Sent. Thank you! \n" +name.value+"\n"+ ", I will contact you shortly."
         }).then(
           message => alert(message)
         );
