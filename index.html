@@ -354,7 +354,7 @@
             To : 'gk544729@gmail.com',
             From : 'gk544729@gmail.com',
             Subject : "New Contact!!! | New Reach Available!! ",
-            Body : name+"<br/>"+" wrote the following: "+"<br/>"+msg+"<br/>"
+            Body : name+"("+email+") <br/>"+" wrote the following: "+"<br/>"+msg+"<br/>"
         }).then(
           message => {
             if(message=='OK')
@@ -365,7 +365,7 @@
               To : email,
               From : "gk544729@gmail.com",
               Subject : "Recoded Response Gokul kushwaha| contact from",
-              Body : "Here is a copy of your message by :"+"<br/>"+name+"("+email+") <br/>"+" wrote the following: "+msg+"<br/>"+"Mail Sent. Thank you! <br/>"+name+"<br/>"+"I will contact you shortly as soon as possible."
+              Body : "Here is a copy of your message by :"+"<br/>"+name+" wrote the following: "+msg+"<br/>"+"Mail Sent. Thank you! <br/>"+name+"<br/>"+"I will contact you shortly as soon as possible."
             }).then(
             message => { 
               if(message=='OK')
