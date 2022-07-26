@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-md-6">
               <h2 class="h3 mb-3">About Me</h2>
-              <p>Hello! I’m Gokul Kushwaha. I am passionate about Learning New Technology.I am willing to gain experience in cyber security and apply the knowledge obtained in order to achieve excellence. I will do any work provided to me and put in my best to do it. I am willing to utilize my leadership experience and learn with every opportunity available.</p>
+              <p>Hello! I’m Gokul Kushwaha. I am passionate about Learning New Technology.</p>
             </div>
             <div class="col-md-5 offset-md-1">
               <div class="row mt-2">
@@ -280,7 +280,7 @@
               <div class="col-md-7 d-print-none">
                 <div class="my-2">
                   <!--contact form-->
-                  <form method="post" >
+                  <form  class="contact_from" action="javascript:sendMsg()" method="post" >
                     <div class="row">
                       <div class="col-6">
                         <input class="form-control" type="text" id="name" name="name" placeholder="Your Name" required>
@@ -294,7 +294,7 @@
                       <textarea class="form-control" style="resize: none;" id="message" name="message" rows="4"
                         placeholder="Your Message" required></textarea>
                     </div>
-                    <button class="btn btn-primary mt-2" name="submit" id="btn" type="submit">Send</button>
+                    <button class="btn btn-primary mt-2" name="submit" type="submit">Send</button>
                   </form>
                 </div>
               </div>
@@ -339,55 +339,49 @@
         </div>
       </div>
     </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
     <script>
-           var btn = document.getElementById('btn');
-           btn.addEventListener('click',function (e){ 
-            e.preventDefault()
-           
-            var name= document.getElementById('name').value;
-            var email= document.getElementById('email').value;
-            var msg= document.getElementById('message').value;
+            function sendMsg(){
+            var from= document.querySelector(".contact_from");
+            var name= $("#name").val();
+            var email= $("#email").val();
+            var msg= $("#message").val();
         //function to send email
-        Email.send({
-            Host: "smtp.gmail.com",
-            Username: "gk544729@gmail.com",
-            Password: "uploirsgwdumqwep",
-            To: "gk544729@gmail.com",
-            From: email,
-            Subject: "New Contact!!! | New Reach Available!! ",
-            Body: name + "(" + email + ") <br/>" + " wrote the following: " + "<br/>" + msg + "<br/>"
-          }).then(
-            message => {
-              if (message == 'OK') {
-                alert("message send successfully!!");
-                Email.send({
-                  Host: "smtp.gmail.com",
-                  Username: "gk544729@gmail.com",
-                  Password: "uploirsgwdumqwep",
-                  To: email,
-                  From: "gk544729@gmail.com",
-                  Subject: "Recoded Response Gokul kushwaha| contact from",
-                  Body: "Here is a copy of your message by :" + "<br/>" + name + " wrote the following: " + msg + "<br/>" + "Mail Sent. Thank you! <br/>" + name + "<br/>" + "I will contact you shortly as soon as possible."
-                }).then(
-                  message => {
-                    if (message == 'OK') { alert(" recorded response send successfully!!"); }
-                    else {
-                      alert("error");
-                    }
-                  }
-                );
-              }
-              else {
-                alert("error in sending email");
-              }
+            Email.send({
+            SecureToken : "51615b2d-9243-41a0-a053-ab1ca5e473a1",
+            To : 'gk544729@gmail.com',
+            From : 'gk544729@gmail.com',
+            Subject : "New Contact!!! | New Reach Available!! ",
+            Body : name+"<br/>"+" wrote the following: "+"<br/>"+msg+"<br/>"
+        }).then(
+          message => {
+            if(message=='OK')
+            {            
+              alert("message send successfully!!");
+              Email.send({
+              SecureToken : "51615b2d-9243-41a0-a053-ab1ca5e473a1",
+              To : email,
+              From : "gk544729@gmail.com",
+              Subject : "Recoded Response Gokul kushwaha| contact from",
+              Body : "Here is a copy of your message by :"+"<br/>"+name+"("+email+") <br/>"+" wrote the following: "+msg+"<br/>"+"Mail Sent. Thank you! <br/>"+name+"<br/>"+"I will contact you shortly as soon as possible."
+            }).then(
+            message => { 
+              if(message=='OK')
+              {alert(" recorded response send successfully!!");}
+              else{
+              alert("error");
             }
-          ); 
-           })
+          }
+        );}
+            else{
+              alert("error in sending email");
+            }
+          }
+        );
         
-      
+      }
 
         
     </script>
